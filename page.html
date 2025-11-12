@@ -1,0 +1,1434 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archispot - Construction & Interior Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      color: #000000;
+      background: #FFFFFF;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #000000;
+      z-index: 1000;
+      padding: 1.5rem 5%;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 2px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 400;
+      transition: opacity 0.3s;
+      font-size: 1rem;
+      position: relative;
+    }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: #FFFFFF;
+      transition: width 0.3s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      opacity: 0.7;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100%;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0 5%;
+      position: relative;
+      border-bottom: 1px solid #E0E0E0;
+    }
+
+    .hero-content {
+      max-width: 900px;
+      color: #000000;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      letter-spacing: -1px;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+      color: #333333;
+      line-height: 1.6;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: #000000;
+      color: #FFFFFF;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: 2px solid #000000;
+      transition: all 0.3s;
+    }
+
+    .cta-button:hover {
+      background: #FFFFFF;
+      color: #000000;
+    }
+
+    /* About Section */
+    .about-section {
+      padding: 8rem 5%;
+      background: #000000;
+      position: relative;
+    }
+
+    .about-container {
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-content {
+      background: #000000;
+      color: #FFFFFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .about-content h2 {
+      font-size: 4rem;
+      margin-bottom: 2.5rem;
+      color: #FFFFFF;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .about-content p {
+      font-size: 1.3rem;
+      line-height: 2;
+      color: #CCCCCC;
+      margin-bottom: 4rem;
+      max-width: 900px;
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 4rem;
+      margin-bottom: 4rem;
+      padding-top: 3rem;
+      border-top: 1px solid #333333;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.8rem;
+    }
+
+    .stat-label {
+      font-size: 1rem;
+      color: #999999;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+    }
+
+    .learn-more {
+      display: inline-block;
+      padding: 1.2rem 3rem;
+      background: #FFFFFF;
+      color: #000000;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s;
+      font-size: 1.1rem;
+    }
+
+    .learn-more:hover {
+      background: transparent;
+      color: #FFFFFF;
+      box-shadow: inset 0 0 0 2px #FFFFFF;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      padding: 6rem 5%;
+      background: #FFFFFF;
+    }
+
+    .projects-container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      color: #000000;
+      font-weight: 700;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 4rem;
+      color: #666666;
+    }
+
+    /* New Project Category Styles */
+    .project-category-title {
+      font-size: 2.5rem;
+      font-weight: 600;
+      color: #000000;
+      margin-top: 3rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #E0E0E0;
+    }
+
+    .project-categories-container .project-category-title:first-child {
+      margin-top: 0;
+    }
+
+    .specific-projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2.5rem;
+    }
+
+    .specific-project-card {
+      background: #FFFFFF;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+      border: 2px solid #E0E0E0;
+      cursor: pointer;
+    }
+
+    .specific-project-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      border-color: #000000;
+    }
+
+    .project-card-icon {
+      font-size: 3.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .specific-project-card h4 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: #000000;
+      font-weight: 600;
+    }
+
+    .specific-project-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #666666;
+    }
+
+
+    /* Project Modal (Replaces Gallery Modal) */
+    .project-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .project-modal.active {
+      display: flex;
+    }
+
+    .project-modal-content {
+      position: relative;
+      max-width: 1200px;
+      width: 100%;
+      background: #FFFFFF;
+      padding: 3rem;
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 1.5rem;
+      right: 1.5rem;
+      background: #000000;
+      color: #FFFFFF;
+      border: none;
+      width: 50px;
+      height: 50px;
+      font-size: 2rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      font-weight: 300;
+      line-height: 1;
+      z-index: 10;
+    }
+
+    .modal-close:hover {
+      background: #333333;
+      transform: rotate(90deg);
+    }
+
+    .modal-header {
+      margin-bottom: 2rem;
+      padding-right: 4rem;
+    }
+
+    .modal-header h2 {
+      font-size: 3rem;
+      color: #000000;
+      margin-bottom: 1rem;
+    }
+
+    /* New Modal Content Styles */
+    .project-modal-subtitle {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #000000;
+      margin-top: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-modal-images-grid,
+    .project-modal-videos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .gallery-image-placeholder,
+    .gallery-video-placeholder {
+      width: 100%;
+      height: 200px;
+      background: #F0F0F0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #999;
+      border: 2px solid #E0E0E0;
+      transition: all 0.3s;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .gallery-video-placeholder::before {
+      content: '▶️ ';
+      /* Simple video icon */
+      font-size: 1.5rem;
+      margin-right: 0.5rem;
+    }
+
+    .gallery-image-placeholder:hover,
+    .gallery-video-placeholder:hover {
+      border-color: #000000;
+      color: #000000;
+    }
+
+    .project-modal-feedback {
+      background: #F8F8F8;
+      padding: 2rem;
+      border-left: 5px solid #000000;
+      margin-top: 1rem;
+    }
+
+    .feedback-quote {
+      font-size: 1.3rem;
+      font-style: italic;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+
+    .feedback-client {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .feedback-client::before {
+      content: '— ';
+    }
+
+
+    /* Contact Section */
+    .contact-section {
+      padding: 8rem 5%;
+      background: #000000;
+      color: #FFFFFF;
+    }
+
+    .contact-container-full {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .contact-container-full h2 {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    .contact-intro {
+      font-size: 1.3rem;
+      color: #CCCCCC;
+      margin-bottom: 4rem;
+      line-height: 1.8;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      text-align: left;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .form-group label {
+      font-weight: 600;
+      color: #FFFFFF;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 1.2rem;
+      border: none;
+      border-bottom: 2px solid #333333;
+      background: transparent;
+      color: #FFFFFF;
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      transition: border-color 0.3s;
+    }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #666666;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-bottom-color: #FFFFFF;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    .submit-button {
+      padding: 1.3rem 3rem;
+      background: #FFFFFF;
+      color: #000000;
+      border: 2px solid #FFFFFF;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Poppins', sans-serif;
+      margin-top: 1rem;
+    }
+
+    .submit-button:hover {
+      background: transparent;
+      color: #FFFFFF;
+    }
+
+    .submit-button:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+
+    .form-status {
+      padding: 1rem;
+      text-align: center;
+      font-weight: 600;
+      display: none;
+    }
+
+    .form-status.success {
+      display: block;
+      background: #4CAF50;
+      color: #FFFFFF;
+    }
+
+    .form-status.error {
+      display: block;
+      background: #f44336;
+      color: #FFFFFF;
+    }
+
+    /* Footer */
+    footer {
+      background: #000000;
+      color: #FFFFFF;
+      padding: 4rem 5%;
+      border-top: none;
+    }
+
+    .footer-content {
+      max-width: 1400px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .footer-brand {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .footer-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 2px;
+    }
+
+    .footer-tagline {
+      font-size: 1rem;
+      color: #999999;
+      line-height: 1.6;
+      max-width: 400px;
+    }
+
+    .footer-contact {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .footer-contact-title {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 0.5rem;
+    }
+
+    .footer-contact-item {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      font-size: 0.95rem;
+      color: #CCCCCC;
+      transition: color 0.3s;
+    }
+
+    .footer-contact-item:hover {
+      color: #FFFFFF;
+    }
+
+    .footer-contact-icon {
+      font-size: 1.2rem;
+      color: #FFFFFF;
+      min-width: 24px;
+    }
+
+    .footer-bottom {
+      grid-column: 1 / -1;
+      padding-top: 2rem;
+      margin-top: 2rem;
+      border-top: 1px solid #333333;
+      text-align: center;
+    }
+
+    .copyright {
+      font-size: 0.9rem;
+      color: #666666;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Design */
+    @media (max-width: 1024px) {
+      nav {
+        padding: 1.2rem 3%;
+      }
+
+      .nav-links {
+        gap: 2rem;
+      }
+
+      .hero h1 {
+        font-size: 3rem;
+      }
+
+      .about-container {
+        gap: 3rem;
+      }
+
+      .specific-projects-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .project-modal-content {
+        padding: 2rem 1.5rem;
+        max-height: 95vh;
+      }
+
+      .modal-close {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+        top: 1rem;
+        right: 1rem;
+      }
+
+      .modal-header h2 {
+        font-size: 2rem;
+      }
+
+      .project-modal-subtitle {
+        font-size: 1.5rem;
+      }
+
+      .project-modal-images-grid,
+      .project-modal-videos-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+      }
+
+      .gallery-image-placeholder,
+      .gallery-video-placeholder {
+        height: 150px;
+        font-size: 1rem;
+      }
+
+      .feedback-quote {
+        font-size: 1.1rem;
+      }
+
+      .feedback-client {
+        font-size: 1rem;
+      }
+
+      nav {
+        padding: 1rem 5%;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+      }
+
+      .nav-links {
+        display: none;
+        /* Hides nav links on mobile, consider a hamburger menu */
+      }
+
+      .hero {
+        padding: 0 8%;
+        min-height: 100%;
+      }
+
+      .hero h1 {
+        font-size: 2.2rem;
+        margin-bottom: 1rem;
+      }
+
+      .hero p {
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .cta-button {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+      }
+
+      .about-section {
+        padding: 5rem 5%;
+      }
+
+      .about-container {
+        max-width: 100%;
+      }
+
+      .about-content h2 {
+        font-size: 2.8rem;
+      }
+
+      .about-content p {
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+      }
+
+      .about-stats {
+        gap: 2rem;
+        margin-bottom: 3rem;
+        padding-top: 2rem;
+      }
+
+      .stat-number {
+        font-size: 2.5rem;
+      }
+
+      .stat-label {
+        font-size: 0.9rem;
+      }
+
+      .projects-section {
+        padding: 4rem 5%;
+      }
+
+      .section-title {
+        font-size: 2rem;
+      }
+
+      .section-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .project-category-title {
+        font-size: 2rem;
+      }
+
+      .specific-projects-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+
+      .specific-project-card h4 {
+        font-size: 1.3rem;
+      }
+
+
+      .contact-section {
+        padding: 5rem 5%;
+      }
+
+      .contact-container-full h2 {
+        font-size: 2.5rem;
+      }
+
+      .contact-intro {
+        font-size: 1.1rem;
+        margin-bottom: 3rem;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 1rem;
+        font-size: 1rem;
+      }
+
+      .submit-button {
+        padding: 1.1rem 2.5rem;
+        font-size: 1rem;
+      }
+
+      footer {
+        padding: 3rem 5%;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+
+      .footer-bottom {
+        margin-top: 1.5rem;
+        padding-top: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .project-modal {
+        padding: 1rem;
+      }
+
+      .project-modal-content {
+        padding: 1.5rem 1rem;
+        max-height: 90vh;
+      }
+
+      .modal-header {
+        padding-right: 3rem;
+      }
+
+      .modal-header h2 {
+        font-size: 1.7rem;
+      }
+
+      .project-modal-images-grid,
+      .project-modal-videos-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-image-placeholder,
+      .gallery-video-placeholder {
+        height: 180px;
+        font-size: 0.9rem;
+      }
+
+
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+
+      .hero p {
+        font-size: 0.95rem;
+      }
+
+      .cta-button {
+        padding: 0.7rem 1.5rem;
+        font-size: 0.95rem;
+      }
+
+      .about-section {
+        padding: 4rem 5%;
+      }
+
+      .about-content h2 {
+        font-size: 2.2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-content p {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+        line-height: 1.8;
+      }
+
+      .about-stats {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        margin-bottom: 2.5rem;
+        padding-top: 2rem;
+      }
+
+      .stat-number {
+        font-size: 2rem;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+      }
+
+      .learn-more {
+        padding: 1rem 2.2rem;
+        font-size: 1rem;
+      }
+
+      .section-title {
+        font-size: 1.7rem;
+      }
+
+      .project-category-title {
+        font-size: 1.7rem;
+      }
+
+      .specific-projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-section {
+        padding: 4rem 5%;
+      }
+
+      .contact-container-full h2 {
+        font-size: 2rem;
+      }
+
+      .contact-intro {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+      }
+
+      .form-group input,
+      .form-group textarea {
+        padding: 0.9rem;
+        font-size: 0.95rem;
+      }
+
+      .submit-button {
+        padding: 1rem 2rem;
+        font-size: 0.95rem;
+      }
+
+      footer {
+        padding: 3rem 5%;
+      }
+
+      .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+      }
+
+      .footer-logo {
+        font-size: 1.6rem;
+      }
+
+      .footer-tagline {
+        font-size: 0.9rem;
+      }
+
+      .footer-contact-item {
+        font-size: 0.85rem;
+      }
+    }
+  </style>
+  <style>
+    @view-transition {
+      navigation: auto;
+    }
+  </style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="logo">
+        ARCHISPOT
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 id="hero-tagline">Building Dreams with Precision &amp; Passion</h1>
+      <p id="hero-subtitle">Expert construction and interior design services that transform your vision into reality with
+        meticulous attention to detail and creative excellence</p><a href="#contact" class="cta-button">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="about-container">
+      <div class="about-content">
+        <h2 id="about-title">About Archispot</h2>
+        <p id="about-text">At Archispot, we bring years of expertise in construction and interior design to every project.
+          Our commitment to excellence, innovative design philosophy, and attention to detail ensure that each space we
+          create is not just built, but crafted with precision and passion. We believe in transforming spaces into
+          experiences that reflect your unique vision and lifestyle.</p>
+        <div class="about-stats">
+          <div class="stat-item">
+            <div class="stat-number">
+              6+
+            </div>
+            <div class="stat-label">
+              Years Experience
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">
+              200+
+            </div>
+            <div class="stat-label">
+              Projects Done
+            </div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">
+              98%
+            </div>
+            <div class="stat-label">
+              Client Satisfaction
+            </div>
+          </div>
+        </div><a href="#projects" class="learn-more">Explore Our Projects</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <div class="projects-container">
+      <h2 class="section-title">Featured Projects</h2>
+      <p class="section-subtitle">Explore our portfolio of exceptional designs</p>
+
+      <!-- New Project Structure -->
+      <div class="project-categories-container">
+
+        <!-- Category 1: Construction -->
+        <h3 class="project-category-title">Construction Projects</h3>
+        <div class="specific-projects-grid" id="construction-projects-grid">
+          <!-- Projects will be dynamically injected here by JavaScript -->
+        </div>
+
+        <!-- Category 2: Interior Design -->
+        <h3 class="project-category-title">Interior Design Projects</h3>
+        <div class="specific-projects-grid" id="interior-projects-grid">
+          <!-- Projects will be dynamically injected here by JavaScript -->
+        </div>
+
+        <!-- Category 3: Renovation -->
+        <h3 class="project-category-title">Renovation Projects</h3>
+        <div class="specific-projects-grid" id="renovation-projects-grid">
+          <!-- Projects will be dynamically injected here by JavaScript -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="contact-container-full">
+      <h2>Let's Work Together</h2>
+      <p class="contact-intro">Have a project in mind? Share your vision with us and we'll bring it to life.</p>
+      <form id="contactForm" class="contact-form">
+        <div class="form-row">
+          <div class="form-group"><label for="name">Your Name</label> <input type="text" id="name" name="name"
+              placeholder="John Doe" required>
+          </div>
+          <div class="form-group"><label for="email">Email Address</label> <input type="email" id="email" name="email"
+              placeholder="john@example.com" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="phone">Phone Number</label> <input type="tel" id="phone" name="phone"
+              placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group"><label for="subject">Subject</label> <input type="text" id="subject" name="subject"
+              placeholder="Project Inquiry" required>
+          </div>
+        </div>
+        <div class="form-group"><label for="message">Your Message</label> <textarea id="message" name="message" rows="5"
+            placeholder="Tell us about your project..." required></textarea>
+        </div><button type="submit" class="submit-button">Send Message</button>
+        <div id="formStatus" class="form-status"></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Project Modal -->
+  <div id="projectModal" class="project-modal">
+    <div class="project-modal-content">
+      <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">×</button>
+      <div class="modal-header">
+        <h2 id="projectModalTitle"></h2>
+      </div>
+
+      <h4 class="project-modal-subtitle">Images</h4>
+      <div class="project-modal-images-grid" id="projectModalImagesGrid">
+        <!-- Gallery images will be injected here by JavaScript -->
+      </div>
+
+      <h4 class="project-modal-subtitle">Videos</h4>
+      <div class="project-modal-videos-grid" id="projectModalVideosGrid">
+        <!-- Gallery videos will be injected here by JavaScript -->
+      </div>
+
+      <h4 class="project-modal-subtitle">Client Feedback</h4>
+      <div class="project-modal-feedback">
+        <p class="feedback-quote" id="feedbackQuote"></p>
+        <span class="feedback-client" id="feedbackClient"></span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">
+        <div class="footer-logo">
+          ARCHISPOT
+        </div>
+        <p class="footer-tagline">Building dreams with precision and passion. Expert construction and interior design
+          services in Chennai.</p>
+      </div>
+      <div class="footer-contact">
+        <div class="footer-contact-title">
+          Contact Us
+        </div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📧</span> <span
+            id="footer-email">archispot@gmail.com</span>
+        </div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span> <span
+            id="footer-phone">9363717862</span>
+        </div>
+        <div class="footer-contact-item"><span class="footer-contact-icon">📍</span> <span id="footer-address">No: 37,
+            Baskar Palace, Devi Nagar, Kolathur, Chennai - 600099</span>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="copyright">© 2025 Archispot. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // --- Default Configuration ---
+    const defaultConfig = {
+      hero_tagline: "Building Dreams with Precision & Passion",
+      hero_subtitle: "Expert construction and interior design services that transform your vision into reality with meticulous attention to detail and creative excellence",
+      about_title: "About Archispot",
+      about_text: "At Archispot, we bring years of expertise in construction and interior design to every project. Our commitment to excellence, innovative design philosophy, and attention to detail ensure that each space we create is not just built, but crafted with precision and passion. We believe in transforming spaces into experiences that reflect your unique vision and lifestyle.",
+      contact_email: "archispot@gmail.com",
+      contact_phone: "9363717862",
+      contact_address: "No: 37, Baskar Palace, Devi Nagar, Kolathur, Chennai - 600099",
+      background_color: "#FFFFFF",
+      text_color: "#000000",
+      accent_color: "#000000",
+      surface_color: "#F8F8F8",
+      border_color: "#E0E0E0",
+      font_family: "Poppins",
+      font_size: 16
+    };
+
+    // --- New Project Gallery Data Structure ---
+    // (Using text placeholders. Replace with real image/video URLs)
+    const projectData = {
+      construction: [{
+        id: "const-proj-1",
+        name: "Modern Villa (ECR)",
+        description: "A 4-bed luxury villa with sustainable design.",
+        icon: "🏢",
+        images: ["Villa Front View", "Villa Poolside", "Living Room", "Master Bedroom"],
+        videos: ["Villa Walkthrough Video"],
+        feedback: {
+          client: "Mr. & Mrs. Sharma",
+          quote: "Archispot delivered our dream home exactly as we envisioned. The quality and attention to detail are outstanding!"
+        }
+      },
+      {
+        id: "const-proj-2",
+        name: "Commercial Complex",
+        description: "A 5-story commercial hub in Velachery.",
+        icon: "🏗️",
+        images: ["Complex Exterior", "Lobby Area", "Rooftop Cafeteria"],
+        videos: ["Complex Drone View"],
+        feedback: {
+          client: "Velachery Properties Ltd.",
+          quote: "A professional team that delivered on time and within budget. Highly recommended for large-scale projects."
+        }
+      }
+      ],
+      interior: [{
+        id: "int-proj-1",
+        name: "Minimalist Apartment",
+        description: "A 3BHK apartment redesign in Anna Nagar.",
+        icon: "🛋️",
+        images: ["Living Area (After)", "Modular Kitchen", "Minimalist Bedroom", "Living Area (Before)"],
+        videos: ["Apartment Makeover Time-lapse"],
+        feedback: {
+          client: "Priya R.",
+          quote: "They transformed my cluttered apartment into a serene, beautiful, and functional space. I love my new home!"
+        }
+      },
+      {
+        id: "int-proj-2",
+        name: "Vibrant Cafe Design",
+        description: "Thematic interior design for a new cafe.",
+        icon: "☕",
+        images: ["Cafe Seating Area", "Custom Counter", "Wall Art & Murals"],
+        videos: ["Cafe Ambience Video"],
+        feedback: {
+          client: "The Brew Room",
+          quote: "The design is a huge hit with our customers! Archispot captured our brand's vibe perfectly."
+        }
+      },
+      {
+        id: "int-proj-3",
+        name: "Corporate Office",
+        description: "Modern, open-plan office for a tech startup.",
+        icon: "💼",
+        images: ["Open Workspace", "Conference Room", "Breakout Zone"],
+        videos: [],
+        feedback: {
+          client: "TechGen Solutions",
+          quote: "Excellent, functional design that fosters collaboration. The team was creative and responsive."
+        }
+      }
+      ],
+      renovation: [{
+        id: "ren-proj-1",
+        name: "Heritage Home Restoration",
+        description: "Restoring a 50-year-old home in Mylapore.",
+        icon: "🏡",
+        images: ["Restored Exterior", "New vs Old Flooring", "Modernized Kitchen"],
+        videos: ["Restoration Process"],
+        feedback: {
+          client: "The Iyer Family",
+          quote: "They preserved the soul of our ancestral home while making it modern and comfortable. It's simply wonderful."
+        }
+      }]
+    };
+
+    // --- New Project Modal Functionality ---
+    const projectModal = document.getElementById('projectModal');
+    const modalTitle = document.getElementById('projectModalTitle');
+    const imagesGrid = document.getElementById('projectModalImagesGrid');
+    const videosGrid = document.getElementById('projectModalVideosGrid');
+    const feedbackQuote = document.getElementById('feedbackQuote');
+    const feedbackClient = document.getElementById('feedbackClient');
+
+    function openProjectModal(category, projectId) {
+      const project = projectData[category]?.find(p => p.id === projectId);
+      if (!project) {
+        console.error("Project not found!");
+        return;
+      }
+
+      // 1. Set Title
+      modalTitle.textContent = project.name;
+
+      // 2. Clear and Populate Images
+      imagesGrid.innerHTML = '';
+      if (project.images.length > 0) {
+        project.images.forEach(imageText => {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'gallery-image-placeholder';
+          placeholder.textContent = imageText;
+          // To use real images:
+          // placeholder.style.backgroundImage = `url(${imageURL})`;
+          // placeholder.textContent = ''; // Remove text
+          imagesGrid.appendChild(placeholder);
+        });
+      } else {
+        imagesGrid.innerHTML = '<p>No images available for this project.</p>';
+      }
+
+
+      // 3. Clear and Populate Videos
+      videosGrid.innerHTML = '';
+      if (project.videos.length > 0) {
+        project.videos.forEach(videoText => {
+          const placeholder = document.createElement('div');
+          placeholder.className = 'gallery-video-placeholder';
+          placeholder.textContent = videoText;
+          // To use real videos (e.g., YouTube embed):
+          // placeholder.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+          videosGrid.appendChild(placeholder);
+        });
+      } else {
+        videosGrid.innerHTML = '<p>No videos available for this project.</p>';
+      }
+
+      // 4. Populate Feedback
+      feedbackQuote.textContent = `"${project.feedback.quote}"`;
+      feedbackClient.textContent = project.feedback.client;
+
+      // 5. Show the modal
+      projectModal.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+    }
+
+    function closeProjectModal() {
+      projectModal.classList.remove('active');
+      document.body.style.overflow = ''; // Restore scrolling
+    }
+
+    // Close modal if clicking outside the content
+    projectModal.addEventListener('click', (event) => {
+      if (event.target === projectModal) {
+        closeProjectModal();
+      }
+    });
+
+    // --- Contact Form ---
+    const contactForm = document.getElementById('contactForm');
+    const formStatus = document.getElementById('formStatus');
+
+    contactForm.addEventListener('submit', function (e) {
+      e.preventDefault(); // Prevent the default form submission
+
+      const submitButton = contactForm.querySelector('.submit-button');
+      submitButton.disabled = true;
+      submitButton.textContent = 'Sending...';
+
+      // Simulate a form submission
+      setTimeout(() => {
+        // Reset button
+        submitButton.disabled = false;
+        submitButton.textContent = 'Send Message';
+
+        // Show success message
+        formStatus.textContent = 'Thank you! Your message has been sent.';
+        formStatus.className = 'form-status success';
+
+        // Clear the form
+        contactForm.reset();
+
+        // Hide the status message after 3 seconds
+        setTimeout(() => {
+          formStatus.style.display = 'none';
+        }, 3000);
+
+      }, 1500); // Simulate network delay
+    });
+
+
+    // --- Populate Project Grids on Page Load ---
+    function populateProjectGrids() {
+      const constructionGrid = document.getElementById('construction-projects-grid');
+      const interiorGrid = document.getElementById('interior-projects-grid');
+      const renovationGrid = document.getElementById('renovation-projects-grid');
+
+      // Helper function to create a card
+      const createProjectCard = (project, category) => {
+        const card = document.createElement('div');
+        card.className = 'specific-project-card';
+        card.onclick = () => openProjectModal(category, project.id);
+        card.innerHTML = `
+          <div class="project-card-icon">${project.icon || '🛠️'}</div>
+          <h4>${project.name}</h4>
+          <p>${project.description}</p>
+        `;
+        return card;
+      };
+
+      // Populate Construction
+      projectData.construction.forEach(project => {
+        constructionGrid.appendChild(createProjectCard(project, 'construction'));
+      });
+
+      // Populate Interior
+      projectData.interior.forEach(project => {
+        interiorGrid.appendChild(createProjectCard(project, 'interior'));
+      });
+
+      // Populate Renovation
+      projectData.renovation.forEach(project => {
+        renovationGrid.appendChild(createProjectCard(project, 'renovation'));
+      });
+    }
+
+    // Explicitly call the function to populate the grids after definition
+    populateProjectGrids();
+  </script>
+</body>
+
+</html>
