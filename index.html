@@ -1,25 +1,23 @@
 <!doctype html>
 <html lang="en">
-
-<head>
+ <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Archispot - Construction & Interior Design</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <title>Archispot - Construction &amp; Interior Design</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&amp;display=swap" rel="stylesheet">
   <script src="/_sdk/element_sdk.js"></script>
   <style>
     body {
       box-sizing: border-box;
     }
-
+    
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    html,
-    body {
+    html, body {
       height: 100%;
       font-family: 'Poppins', sans-serif;
       color: #000000;
@@ -36,7 +34,7 @@
       background: #000000;
       z-index: 1000;
       padding: 1.5rem 5%;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     }
 
     .nav-container {
@@ -97,7 +95,7 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      padding: 0 5%;
+      padding: 6rem 5% 0;
       position: relative;
       border-bottom: 1px solid #E0E0E0;
     }
@@ -134,6 +132,7 @@
       font-size: 1.1rem;
       border: 2px solid #000000;
       transition: all 0.3s;
+      cursor: pointer;
     }
 
     .cta-button:hover {
@@ -201,33 +200,54 @@
     }
 
     .stat-label {
-      font-size: 1rem;
-      color: #999999;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-    }
-
-    .learn-more {
-      display: inline-block;
-      padding: 1.2rem 3rem;
-      background: #FFFFFF;
-      color: #000000;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s;
       font-size: 1.1rem;
-    }
-
-    .learn-more:hover {
-      background: transparent;
-      color: #FFFFFF;
-      box-shadow: inset 0 0 0 2px #FFFFFF;
+      color: #CCCCCC;
+      font-weight: 300;
     }
 
     /* Projects Section */
     .projects-section {
-      padding: 6rem 5%;
+      padding: 8rem 5%;
       background: #FFFFFF;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .projects-section.dark-mode {
+      background: #000000;
+    }
+
+    .projects-section.dark-mode .projects-header h2,
+    .projects-section.dark-mode .gallery-item-title {
+      color: #FFFFFF;
+    }
+
+    .projects-section.dark-mode .projects-header p {
+      color: #CCCCCC;
+    }
+
+    .projects-section.dark-mode .category-tab {
+      background: #000000;
+      color: #FFFFFF;
+      border-color: #FFFFFF;
+    }
+
+    .projects-section.dark-mode .category-tab:hover {
+      background: #FFFFFF;
+      color: #000000;
+    }
+
+    .projects-section.dark-mode .category-tab.active {
+      background: #FFFFFF;
+      color: #000000;
+    }
+
+    .projects-section.dark-mode .gallery-item {
+      border-color: #333333;
+      background: #1a1a1a;
+    }
+
+    .projects-section.dark-mode .gallery-item:hover {
+      border-color: #FFFFFF;
     }
 
     .projects-container {
@@ -235,78 +255,130 @@
       margin: 0 auto;
     }
 
-    .section-title {
+    .projects-header {
       text-align: center;
-      font-size: 3rem;
-      margin-bottom: 1rem;
-      color: #000000;
+      margin-bottom: 5rem;
+    }
+
+    .projects-header h2 {
+      font-size: 4rem;
       font-weight: 700;
-    }
-
-    .section-subtitle {
-      text-align: center;
-      font-size: 1.2rem;
-      margin-bottom: 4rem;
-      color: #666666;
-    }
-
-    /* New Project Category Styles */
-    .project-category-title {
-      font-size: 2.5rem;
-      font-weight: 600;
       color: #000000;
-      margin-top: 3rem;
       margin-bottom: 1.5rem;
-      padding-bottom: 0.5rem;
-      border-bottom: 2px solid #E0E0E0;
     }
 
-    .project-categories-container .project-category-title:first-child {
-      margin-top: 0;
+    .projects-header p {
+      font-size: 1.3rem;
+      color: #666666;
+      font-weight: 300;
     }
 
-    .specific-projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2.5rem;
+    /* Category Tabs */
+    .category-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 4rem;
+      flex-wrap: wrap;
     }
 
-    .specific-project-card {
+    .category-tab {
+      padding: 1rem 2.5rem;
       background: #FFFFFF;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      transition: all 0.3s;
-      border: 2px solid #E0E0E0;
+      color: #000000;
+      border: 2px solid #000000;
+      font-size: 1.1rem;
+      font-weight: 600;
       cursor: pointer;
+      transition: all 0.3s;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .specific-project-card:hover {
+    .category-tab:hover {
+      background: #000000;
+      color: #FFFFFF;
+    }
+
+    .category-tab.active {
+      background: #000000;
+      color: #FFFFFF;
+    }
+
+    /* Gallery Grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2rem;
+      opacity: 1;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-grid.fade {
+      opacity: 0;
+    }
+
+    .gallery-item {
+      position: relative;
+      height: 400px;
+      overflow: hidden;
+      cursor: pointer;
+      border: 2px solid #E0E0E0;
+      transition: transform 0.3s, box-shadow 0.3s;
+      background: #FFFFFF;
+    }
+
+    .gallery-item:hover {
       transform: translateY(-10px);
-      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.15);
       border-color: #000000;
     }
 
-    .project-card-icon {
-      font-size: 3.5rem;
-      margin-bottom: 1.5rem;
+    .gallery-item-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #f8f8f8 0%, #e8e8e8 100%);
+      position: relative;
     }
 
-    .specific-project-card h4 {
+    .gallery-item-icon {
+      font-size: 5rem;
+      opacity: 0.4;
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.95);
+      color: #FFFFFF;
+      padding: 2rem;
+      transform: translateY(100%);
+      transition: transform 0.3s;
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      transform: translateY(0);
+    }
+
+    .gallery-item-title {
       font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: #000000;
       font-weight: 600;
+      margin-bottom: 0.5rem;
     }
 
-    .specific-project-card p {
+    .gallery-item-description {
       font-size: 1rem;
-      line-height: 1.6;
-      color: #666666;
+      font-weight: 300;
+      color: #CCCCCC;
+      line-height: 1.5;
     }
 
-
-    /* Project Modal (Replaces Gallery Modal) */
-    .project-modal {
+    /* Modal */
+    .modal {
       display: none;
       position: fixed;
       top: 0;
@@ -318,151 +390,252 @@
       align-items: center;
       justify-content: center;
       padding: 2rem;
+      overflow-y: auto;
     }
 
-    .project-modal.active {
+    .modal.active {
       display: flex;
     }
 
-    .project-modal-content {
-      position: relative;
-      max-width: 1200px;
+    .modal-content {
+      max-width: 1000px;
       width: 100%;
       background: #FFFFFF;
       padding: 3rem;
-      max-height: 90vh;
+      position: relative;
+      max-height: 90%;
       overflow-y: auto;
+      animation: modalSlideIn 0.3s ease-out;
+      margin: auto;
+    }
+
+    @keyframes modalSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .modal-close {
       position: absolute;
-      top: 1.5rem;
-      right: 1.5rem;
-      background: #000000;
-      color: #FFFFFF;
-      border: none;
-      width: 50px;
-      height: 50px;
-      font-size: 2rem;
+      top: 1rem;
+      right: 1rem;
+      font-size: 2.5rem;
+      color: #000000;
       cursor: pointer;
+      background: none;
+      border: none;
+      width: 40px;
+      height: 40px;
       display: flex;
       align-items: center;
       justify-content: center;
-      transition: all 0.3s;
-      font-weight: 300;
+      transition: opacity 0.3s;
       line-height: 1;
       z-index: 10;
     }
 
     .modal-close:hover {
-      background: #333333;
-      transform: rotate(90deg);
+      opacity: 0.6;
     }
 
-    .modal-header {
-      margin-bottom: 2rem;
-      padding-right: 4rem;
-    }
-
-    .modal-header h2 {
-      font-size: 3rem;
-      color: #000000;
-      margin-bottom: 1rem;
-    }
-
-    /* New Modal Content Styles */
-    .project-modal-subtitle {
-      font-size: 1.8rem;
-      font-weight: 600;
-      color: #000000;
-      margin-top: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .project-modal-images-grid,
-    .project-modal-videos-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 1.5rem;
-    }
-
-    .gallery-image-placeholder,
-    .gallery-video-placeholder {
+    .modal-image {
       width: 100%;
-      height: 200px;
-      background: #F0F0F0;
+      height: 400px;
+      background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.1rem;
+      margin-bottom: 2rem;
+      border: 1px solid #E0E0E0;
+    }
+
+    .modal-image-icon {
+      font-size: 8rem;
+      opacity: 0.2;
+    }
+
+    .modal-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #000000;
+    }
+
+    .modal-category {
+      display: inline-block;
+      padding: 0.5rem 1rem;
+      background: #000000;
+      color: #FFFFFF;
+      font-size: 0.9rem;
       font-weight: 600;
-      color: #999;
-      border: 2px solid #E0E0E0;
-      transition: all 0.3s;
-      padding: 1rem;
+      margin-bottom: 1.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .modal-description {
+      font-size: 1.2rem;
+      color: #666666;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+    }
+
+    .modal-details {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #E0E0E0;
+      margin-bottom: 2rem;
+    }
+
+    .modal-detail-item {
       text-align: center;
     }
 
-    .gallery-video-placeholder::before {
-      content: '▶️ ';
-      /* Simple video icon */
-      font-size: 1.5rem;
-      margin-right: 0.5rem;
+    .modal-detail-label {
+      font-size: 0.9rem;
+      color: #999999;
+      margin-bottom: 0.5rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
-    .gallery-image-placeholder:hover,
-    .gallery-video-placeholder:hover {
-      border-color: #000000;
-      color: #000000;
-    }
-
-    .project-modal-feedback {
-      background: #F8F8F8;
-      padding: 2rem;
-      border-left: 5px solid #000000;
-      margin-top: 1rem;
-    }
-
-    .feedback-quote {
+    .modal-detail-value {
       font-size: 1.3rem;
-      font-style: italic;
-      color: #333;
-      line-height: 1.6;
-      margin-bottom: 1rem;
-    }
-
-    .feedback-client {
-      font-size: 1.1rem;
       font-weight: 600;
       color: #000000;
     }
 
-    .feedback-client::before {
-      content: '— ';
+    /* Project Media Gallery */
+    .project-media {
+      margin-bottom: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid #E0E0E0;
     }
 
+    .media-section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #000000;
+      margin-bottom: 1.5rem;
+    }
+
+    .media-gallery {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .media-item {
+      height: 150px;
+      background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #E0E0E0;
+      font-size: 3rem;
+      transition: transform 0.3s;
+    }
+
+    .media-item:hover {
+      transform: scale(1.05);
+    }
+
+    .video-section {
+      height: 250px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #E0E0E0;
+      margin-bottom: 2rem;
+      position: relative;
+      transition: transform 0.3s;
+    }
+
+    .video-section:hover {
+      transform: scale(1.02);
+    }
+
+    .video-icon {
+      font-size: 5rem;
+      opacity: 0.7;
+      filter: brightness(2);
+    }
+
+    .video-label {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: #FFFFFF;
+      font-size: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-weight: 600;
+    }
+
+    /* Client Feedback */
+    .client-feedback {
+      background: #F9F9F9;
+      padding: 2.5rem;
+      border-left: 4px solid #000000;
+      margin-top: 2rem;
+    }
+
+    .feedback-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.5rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .client-name {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #000000;
+    }
+
+    .client-rating {
+      font-size: 1.3rem;
+    }
+
+    .feedback-text {
+      font-size: 1.1rem;
+      color: #666666;
+      line-height: 1.8;
+      font-style: italic;
+    }
 
     /* Contact Section */
     .contact-section {
-      padding: 8rem 5%;
+      padding: 8rem 5% 4rem;
       background: #000000;
-      color: #FFFFFF;
     }
 
-    .contact-container-full {
+    .contact-container {
       max-width: 800px;
       margin: 0 auto;
       text-align: center;
     }
 
-    .contact-container-full h2 {
+    .contact-container h2 {
       font-size: 4rem;
-      margin-bottom: 1.5rem;
-      color: #FFFFFF;
       font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 1.5rem;
     }
 
-    .contact-intro {
+    .contact-container > p {
       font-size: 1.3rem;
       color: #CCCCCC;
       margin-bottom: 4rem;
@@ -470,53 +643,43 @@
     }
 
     .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
       text-align: left;
     }
 
     .form-row {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       gap: 2rem;
+      margin-bottom: 2rem;
     }
 
     .form-group {
       display: flex;
       flex-direction: column;
-      gap: 0.8rem;
     }
 
     .form-group label {
+      font-size: 1rem;
       font-weight: 600;
       color: #FFFFFF;
-      font-size: 0.95rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
+      margin-bottom: 0.8rem;
     }
 
     .form-group input,
     .form-group textarea {
-      padding: 1.2rem;
-      border: none;
-      border-bottom: 2px solid #333333;
-      background: transparent;
-      color: #FFFFFF;
+      padding: 1rem 1.5rem;
+      border: 2px solid #333333;
+      font-size: 1rem;
       font-family: 'Poppins', sans-serif;
-      font-size: 1.1rem;
       transition: border-color 0.3s;
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #666666;
+      background: #1a1a1a;
+      color: #FFFFFF;
     }
 
     .form-group input:focus,
     .form-group textarea:focus {
       outline: none;
-      border-bottom-color: #FFFFFF;
+      border-color: #FFFFFF;
     }
 
     .form-group textarea {
@@ -525,12 +688,13 @@
     }
 
     .submit-button {
-      padding: 1.3rem 3rem;
+      width: 100%;
+      padding: 1.2rem 3rem;
       background: #FFFFFF;
       color: #000000;
       border: 2px solid #FFFFFF;
-      font-weight: 600;
       font-size: 1.1rem;
+      font-weight: 600;
       cursor: pointer;
       transition: all 0.3s;
       font-family: 'Poppins', sans-serif;
@@ -547,105 +711,106 @@
       cursor: not-allowed;
     }
 
-    .form-status {
+    .form-message {
+      margin-top: 1.5rem;
       padding: 1rem;
       text-align: center;
-      font-weight: 600;
+      font-size: 1rem;
+      font-weight: 500;
       display: none;
     }
 
-    .form-status.success {
+    .form-message.success {
       display: block;
-      background: #4CAF50;
-      color: #FFFFFF;
+      background: #E8F5E9;
+      color: #2E7D32;
+      border: 2px solid #4CAF50;
     }
 
-    .form-status.error {
+    .form-message.error {
       display: block;
-      background: #f44336;
-      color: #FFFFFF;
+      background: #FFEBEE;
+      color: #C62828;
+      border: 2px solid #F44336;
+    }
+
+    /* Info Section (White space between contact and footer) */
+    .info-section {
+      background: #FFFFFF;
+      padding: 4rem 5%;
+    }
+
+    .info-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .info-logo {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #000000;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .info-tagline {
+      font-size: 1rem;
+      color: #666666;
+      line-height: 1.8;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     /* Footer */
     footer {
       background: #000000;
       color: #FFFFFF;
-      padding: 4rem 5%;
-      border-top: none;
+      padding: 1.5rem 5%;
     }
 
     .footer-content {
       max-width: 1400px;
       margin: 0 auto;
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 4rem;
-      align-items: start;
+      text-align: center;
     }
 
-    .footer-brand {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .footer-logo {
-      font-size: 2rem;
-      font-weight: 700;
-      color: #FFFFFF;
-      letter-spacing: 2px;
-    }
-
-    .footer-tagline {
-      font-size: 1rem;
-      color: #999999;
-      line-height: 1.6;
-      max-width: 400px;
-    }
-
-    .footer-contact {
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .footer-contact-title {
-      font-size: 1.2rem;
+    .footer-content h3 {
+      font-size: 1.1rem;
       font-weight: 600;
       color: #FFFFFF;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
     }
 
     .footer-contact-item {
       display: flex;
-      align-items: center;
-      gap: 1rem;
-      font-size: 0.95rem;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 0.8rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.85rem;
       color: #CCCCCC;
-      transition: color 0.3s;
+      line-height: 1.4;
     }
 
-    .footer-contact-item:hover {
-      color: #FFFFFF;
-    }
-
-    .footer-contact-icon {
-      font-size: 1.2rem;
-      color: #FFFFFF;
-      min-width: 24px;
+    .footer-icon {
+      font-size: 1rem;
+      flex-shrink: 0;
     }
 
     .footer-bottom {
-      grid-column: 1 / -1;
-      padding-top: 2rem;
-      margin-top: 2rem;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding-top: 1rem;
+      margin-top: 1rem;
       border-top: 1px solid #333333;
       text-align: center;
     }
 
-    .copyright {
-      font-size: 0.9rem;
-      color: #666666;
+    .footer-bottom p {
+      font-size: 0.8rem;
+      color: #999999;
+      margin: 0;
     }
 
     /* Animations */
@@ -654,181 +819,74 @@
         opacity: 0;
         transform: translateY(30px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    /* Responsive Design */
-    @media (max-width: 1024px) {
-      nav {
-        padding: 1.2rem 3%;
-      }
-
-      .nav-links {
-        gap: 2rem;
-      }
-
-      .hero h1 {
-        font-size: 3rem;
-      }
-
-      .about-container {
-        gap: 3rem;
-      }
-
-      .specific-projects-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 2rem;
-      }
-    }
-
+    /* Responsive */
     @media (max-width: 768px) {
-      .project-modal-content {
-        padding: 2rem 1.5rem;
-        max-height: 95vh;
-      }
-
-      .modal-close {
-        width: 40px;
-        height: 40px;
-        font-size: 1.5rem;
-        top: 1rem;
-        right: 1rem;
-      }
-
-      .modal-header h2 {
-        font-size: 2rem;
-      }
-
-      .project-modal-subtitle {
-        font-size: 1.5rem;
-      }
-
-      .project-modal-images-grid,
-      .project-modal-videos-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1rem;
-      }
-
-      .gallery-image-placeholder,
-      .gallery-video-placeholder {
-        height: 150px;
-        font-size: 1rem;
-      }
-
-      .feedback-quote {
-        font-size: 1.1rem;
-      }
-
-      .feedback-client {
-        font-size: 1rem;
-      }
-
-      nav {
-        padding: 1rem 5%;
-      }
-
-      .logo {
-        font-size: 1.5rem;
-      }
-
-      .nav-links {
-        display: none;
-        /* Hides nav links on mobile, consider a hamburger menu */
-      }
-
-      .hero {
-        padding: 0 8%;
-        min-height: 100%;
-      }
-
       .hero h1 {
-        font-size: 2.2rem;
-        margin-bottom: 1rem;
+        font-size: 2.5rem;
       }
 
       .hero p {
-        font-size: 1rem;
-        margin-bottom: 2rem;
-      }
-
-      .cta-button {
-        padding: 0.8rem 2rem;
-        font-size: 1rem;
-      }
-
-      .about-section {
-        padding: 5rem 5%;
-      }
-
-      .about-container {
-        max-width: 100%;
-      }
-
-      .about-content h2 {
-        font-size: 2.8rem;
-      }
-
-      .about-content p {
         font-size: 1.1rem;
-        margin-bottom: 3rem;
+      }
+
+      .about-content h2,
+      .projects-header h2,
+      .contact-container h2 {
+        font-size: 2.5rem;
       }
 
       .about-stats {
+        grid-template-columns: 1fr;
         gap: 2rem;
-        margin-bottom: 3rem;
-        padding-top: 2rem;
       }
 
-      .stat-number {
-        font-size: 2.5rem;
-      }
-
-      .stat-label {
+      .nav-links {
+        gap: 1.5rem;
         font-size: 0.9rem;
       }
 
-      .projects-section {
-        padding: 4rem 5%;
+      .logo {
+        font-size: 1.4rem;
       }
 
-      .section-title {
+      .category-tabs {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 1rem;
+      }
+
+      .category-tab {
+        width: 100%;
+      }
+
+      .gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .modal-content {
+        padding: 2rem 1.5rem;
+      }
+
+      .modal-title {
         font-size: 2rem;
       }
 
-      .section-subtitle {
-        font-size: 1rem;
-        margin-bottom: 2.5rem;
+      .modal-image {
+        height: 300px;
       }
 
-      .project-category-title {
-        font-size: 2rem;
+      .media-gallery {
+        grid-template-columns: 1fr;
       }
 
-      .specific-projects-grid {
-        grid-template-columns: 1fr 1fr;
-        gap: 1.5rem;
-      }
-
-      .specific-project-card h4 {
-        font-size: 1.3rem;
-      }
-
-
-      .contact-section {
-        padding: 5rem 5%;
-      }
-
-      .contact-container-full h2 {
-        font-size: 2.5rem;
-      }
-
-      .contact-intro {
-        font-size: 1.1rem;
-        margin-bottom: 3rem;
+      .media-item {
+        height: 200px;
       }
 
       .form-row {
@@ -836,599 +894,737 @@
         gap: 1.5rem;
       }
 
-      .form-group input,
-      .form-group textarea {
-        padding: 1rem;
-        font-size: 1rem;
-      }
-
-      .submit-button {
-        padding: 1.1rem 2.5rem;
-        font-size: 1rem;
-      }
-
-      footer {
-        padding: 3rem 5%;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-      }
-
-      .footer-bottom {
-        margin-top: 1.5rem;
-        padding-top: 1.5rem;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .project-modal {
-        padding: 1rem;
-      }
-
-      .project-modal-content {
-        padding: 1.5rem 1rem;
-        max-height: 90vh;
-      }
-
-      .modal-header {
-        padding-right: 3rem;
-      }
-
-      .modal-header h2 {
-        font-size: 1.7rem;
-      }
-
-      .project-modal-images-grid,
-      .project-modal-videos-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .gallery-image-placeholder,
-      .gallery-video-placeholder {
-        height: 180px;
-        font-size: 0.9rem;
-      }
-
-
-      .hero h1 {
-        font-size: 1.8rem;
-      }
-
-      .hero p {
-        font-size: 0.95rem;
-      }
-
-      .cta-button {
-        padding: 0.7rem 1.5rem;
-        font-size: 0.95rem;
-      }
-
-      .about-section {
-        padding: 4rem 5%;
-      }
-
-      .about-content h2 {
-        font-size: 2.2rem;
-        margin-bottom: 1.5rem;
-      }
-
-      .about-content p {
-        font-size: 1rem;
-        margin-bottom: 2.5rem;
-        line-height: 1.8;
-      }
-
-      .about-stats {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-        margin-bottom: 2.5rem;
-        padding-top: 2rem;
-      }
-
-      .stat-number {
-        font-size: 2rem;
-      }
-
-      .stat-label {
-        font-size: 0.8rem;
-      }
-
-      .learn-more {
-        padding: 1rem 2.2rem;
-        font-size: 1rem;
-      }
-
-      .section-title {
-        font-size: 1.7rem;
-      }
-
-      .project-category-title {
-        font-size: 1.7rem;
-      }
-
-      .specific-projects-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-section {
-        padding: 4rem 5%;
-      }
-
-      .contact-container-full h2 {
-        font-size: 2rem;
-      }
-
-      .contact-intro {
-        font-size: 1rem;
-        margin-bottom: 2.5rem;
-      }
-
-      .form-group input,
-      .form-group textarea {
-        padding: 0.9rem;
-        font-size: 0.95rem;
-      }
-
-      .submit-button {
-        padding: 1rem 2rem;
-        font-size: 0.95rem;
-      }
-
-      footer {
-        padding: 3rem 5%;
-      }
-
-      .footer-content {
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-
-      .footer-logo {
-        font-size: 1.6rem;
-      }
-
-      .footer-tagline {
-        font-size: 0.9rem;
+      .info-tagline {
+        max-width: 100%;
       }
 
       .footer-contact-item {
-        font-size: 0.85rem;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
     }
   </style>
-  <style>
-    @view-transition {
-      navigation: auto;
-    }
-  </style>
+  <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
-</head>
-
-<body>
-  <!-- Navigation -->
+ </head>
+ <body>
   <nav>
-    <div class="nav-container">
-      <div class="logo">
-        ARCHISPOT
-      </div>
-      <ul class="nav-links">
-        <li><a href="#home">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
+   <div class="nav-container">
+    <div class="logo" id="site-title">
+     ARCHISPOT
     </div>
+    <ul class="nav-links">
+     <li><a href="#home">Home</a></li>
+     <li><a href="#about">About</a></li>
+     <li><a href="#projects">Projects</a></li>
+     <li><a href="#contact">Contact</a></li>
+    </ul>
+   </div>
   </nav>
-
-  <!-- Hero Section -->
   <section id="home" class="hero">
-    <div class="hero-content">
-      <h1 id="hero-tagline">Building Dreams with Precision &amp; Passion</h1>
-      <p id="hero-subtitle">Expert construction and interior design services that transform your vision into reality with
-        meticulous attention to detail and creative excellence</p><a href="#contact" class="cta-button">Get In Touch</a>
-    </div>
+   <div class="hero-content">
+    <h1 id="hero-heading">Building Dreams with Precision &amp; Passion</h1>
+    <p id="hero-description">Expert construction and interior design services that transform your vision into reality with meticulous attention to detail and creative excellence</p><a href="#contact" class="cta-button" id="cta-button">Get In Touch</a>
+   </div>
   </section>
-
-  <!-- About Section -->
   <section id="about" class="about-section">
-    <div class="about-container">
-      <div class="about-content">
-        <h2 id="about-title">About Archispot</h2>
-        <p id="about-text">At Archispot, we bring years of expertise in construction and interior design to every project.
-          Our commitment to excellence, innovative design philosophy, and attention to detail ensure that each space we
-          create is not just built, but crafted with precision and passion. We believe in transforming spaces into
-          experiences that reflect your unique vision and lifestyle.</p>
-        <div class="about-stats">
-          <div class="stat-item">
-            <div class="stat-number">
-              6+
-            </div>
-            <div class="stat-label">
-              Years Experience
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">
-              200+
-            </div>
-            <div class="stat-label">
-              Projects Done
-            </div>
-          </div>
-          <div class="stat-item">
-            <div class="stat-number">
-              98%
-            </div>
-            <div class="stat-label">
-              Client Satisfaction
-            </div>
-          </div>
-        </div><a href="#projects" class="learn-more">Explore Our Projects</a>
+   <div class="about-container">
+    <div class="about-content">
+     <h2 id="about-heading">About Archispot</h2>
+     <p id="about-description">At Archispot, we bring years of expertise in construction and interior design to every project. Our commitment to excellence, innovative design philosophy, and attention to detail ensure that each space we create is not just built, but crafted with precision and passion. We believe in transforming spaces into experiences that reflect your unique vision and lifestyle.</p>
+     <div class="about-stats">
+      <div class="stat-item">
+       <div class="stat-number">
+        6+
+       </div>
+       <div class="stat-label">
+        Years Experience
+       </div>
       </div>
+      <div class="stat-item">
+       <div class="stat-number">
+        200+
+       </div>
+       <div class="stat-label">
+        Projects Done
+       </div>
+      </div>
+      <div class="stat-item">
+       <div class="stat-number">
+        98%
+       </div>
+       <div class="stat-label">
+        Client Satisfaction
+       </div>
+      </div>
+     </div>
     </div>
+   </div>
   </section>
-
-  <!-- Projects Section -->
   <section id="projects" class="projects-section">
-    <div class="projects-container">
-      <h2 class="section-title">Featured Projects</h2>
-      <p class="section-subtitle">Explore our portfolio of exceptional designs</p>
-
-      <!-- New Project Structure -->
-      <div class="project-categories-container">
-
-        <!-- Category 1: Construction -->
-        <h3 class="project-category-title">Construction Projects</h3>
-        <div class="specific-projects-grid" id="construction-projects-grid">
-          <!-- Projects will be dynamically injected here by JavaScript -->
-        </div>
-
-        <!-- Category 2: Interior Design -->
-        <h3 class="project-category-title">Interior Design Projects</h3>
-        <div class="specific-projects-grid" id="interior-projects-grid">
-          <!-- Projects will be dynamically injected here by JavaScript -->
-        </div>
-
-        <!-- Category 3: Renovation -->
-        <h3 class="project-category-title">Renovation Projects</h3>
-        <div class="specific-projects-grid" id="renovation-projects-grid">
-          <!-- Projects will be dynamically injected here by JavaScript -->
-        </div>
-
-      </div>
+   <div class="projects-container">
+    <div class="projects-header">
+     <h2 id="projects-heading">Explore Our Projects</h2>
+     <p>Discover our portfolio across construction, interior design, and renovation</p>
     </div>
+    <div class="category-tabs"><button class="category-tab active" data-category="construction">Construction</button> <button class="category-tab" data-category="interior">Interior Design</button> <button class="category-tab" data-category="renovation">Renovation</button>
+    </div>
+    <div class="gallery-grid" id="gallery-grid"><!-- Gallery items will be inserted here by JavaScript -->
+    </div>
+   </div>
   </section>
-
-  <!-- Contact Section -->
   <section id="contact" class="contact-section">
-    <div class="contact-container-full">
-      <h2>Let's Work Together</h2>
-      <p class="contact-intro">Have a project in mind? Share your vision with us and we'll bring it to life.</p>
-      <form id="contactForm" class="contact-form">
-        <div class="form-row">
-          <div class="form-group"><label for="name">Your Name</label> <input type="text" id="name" name="name"
-              placeholder="John Doe" required>
-          </div>
-          <div class="form-group"><label for="email">Email Address</label> <input type="email" id="email" name="email"
-              placeholder="john@example.com" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group"><label for="phone">Phone Number</label> <input type="tel" id="phone" name="phone"
-              placeholder="+91 98765 43210">
-          </div>
-          <div class="form-group"><label for="subject">Subject</label> <input type="text" id="subject" name="subject"
-              placeholder="Project Inquiry" required>
-          </div>
-        </div>
-        <div class="form-group"><label for="message">Your Message</label> <textarea id="message" name="message" rows="5"
-            placeholder="Tell us about your project..." required></textarea>
-        </div><button type="submit" class="submit-button">Send Message</button>
-        <div id="formStatus" class="form-status"></div>
-      </form>
-    </div>
+   <div class="contact-container">
+    <h2>Let's Work Together</h2>
+    <p>Have a project in mind? Share your vision with us and we'll bring it to life.</p>
+    <form class="contact-form" id="contact-form">
+     <div class="form-row">
+      <div class="form-group"><label for="name">Your Name</label> <input type="text" id="name" name="name" placeholder="John Doe" required>
+      </div>
+      <div class="form-group"><label for="email">Email Address</label> <input type="email" id="email" name="email" placeholder="john@example.com" required>
+      </div>
+     </div>
+     <div class="form-row">
+      <div class="form-group"><label for="phone">Phone Number</label> <input type="tel" id="phone" name="phone" placeholder="+91 98765 43210" required>
+      </div>
+      <div class="form-group"><label for="subject">Subject</label> <input type="text" id="subject" name="subject" placeholder="Project Inquiry" required>
+      </div>
+     </div>
+     <div class="form-group"><label for="message">Your Message</label> <textarea id="message" name="message" rows="5" placeholder="Tell us about your project..." required></textarea>
+     </div><button type="submit" class="submit-button">Send Message</button>
+     <div class="form-message" id="form-message"></div>
+    </form>
+   </div>
   </section>
-
-  <!-- Project Modal -->
-  <div id="projectModal" class="project-modal">
-    <div class="project-modal-content">
-      <button class="modal-close" onclick="closeProjectModal()" aria-label="Close modal">×</button>
-      <div class="modal-header">
-        <h2 id="projectModalTitle"></h2>
-      </div>
-
-      <h4 class="project-modal-subtitle">Images</h4>
-      <div class="project-modal-images-grid" id="projectModalImagesGrid">
-        <!-- Gallery images will be injected here by JavaScript -->
-      </div>
-
-      <h4 class="project-modal-subtitle">Videos</h4>
-      <div class="project-modal-videos-grid" id="projectModalVideosGrid">
-        <!-- Gallery videos will be injected here by JavaScript -->
-      </div>
-
-      <h4 class="project-modal-subtitle">Client Feedback</h4>
-      <div class="project-modal-feedback">
-        <p class="feedback-quote" id="feedbackQuote"></p>
-        <span class="feedback-client" id="feedbackClient"></span>
-      </div>
-
+  <section class="info-section">
+   <div class="info-container">
+    <div class="info-logo">
+     ARCHISPOT
     </div>
-  </div>
-
-  <!-- Footer -->
+    <p class="info-tagline">Building dreams with precision and passion. Expert construction and interior design services in Chennai.</p>
+   </div>
+  </section>
   <footer>
-    <div class="footer-content">
-      <div class="footer-brand">
-        <div class="footer-logo">
-          ARCHISPOT
-        </div>
-        <p class="footer-tagline">Building dreams with precision and passion. Expert construction and interior design
-          services in Chennai.</p>
-      </div>
-      <div class="footer-contact">
-        <div class="footer-contact-title">
-          Contact Us
-        </div>
-        <div class="footer-contact-item"><span class="footer-contact-icon">📧</span> <span
-            id="footer-email">archispot@gmail.com</span>
-        </div>
-        <div class="footer-contact-item"><span class="footer-contact-icon">📞</span> <span
-            id="footer-phone">9363717862</span>
-        </div>
-        <div class="footer-contact-item"><span class="footer-contact-icon">📍</span> <span id="footer-address">No: 37,
-            Baskar Palace, Devi Nagar, Kolathur, Chennai - 600099</span>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p class="copyright">© 2025 Archispot. All Rights Reserved.</p>
-      </div>
+   <div class="footer-content">
+    <h3>Contact Us</h3>
+    <div class="footer-contact-item"><span class="footer-icon">📧</span> <span>archispot@gmail.com</span>
     </div>
-  </footer>
-
+    <div class="footer-contact-item"><span class="footer-icon">📞</span> <span>9363717862</span>
+    </div>
+    <div class="footer-contact-item"><span class="footer-icon">📍</span> <span>No: 37, Baskar Palace, Devi Nagar, Kolathur, Chennai - 600099</span>
+    </div>
+   </div>
+   <div class="footer-bottom">
+    <p>© 2025 Archispot. All Rights Reserved.</p>
+   </div>
+  </footer><!-- Modal -->
+  <div class="modal" id="project-modal">
+   <div class="modal-content"><button class="modal-close" id="modal-close">×</button>
+    <div class="modal-image" id="modal-image">
+     <div class="modal-image-icon" id="modal-image-icon">
+      🏗️
+     </div>
+    </div><span class="modal-category" id="modal-category">Construction</span>
+    <h3 class="modal-title" id="modal-title"></h3>
+    <p class="modal-description" id="modal-description"></p>
+    <div class="modal-details" id="modal-details"><!-- Details will be inserted by JavaScript -->
+    </div><!-- Project Media Section -->
+    <div class="project-media">
+     <h4 class="media-section-title">Project Gallery</h4>
+     <div class="media-gallery" id="media-gallery"><!-- Images will be inserted by JavaScript -->
+     </div>
+     <h4 class="media-section-title">Project Video</h4>
+     <div class="video-section">
+      <div class="video-icon" id="video-icon">
+       🎥
+      </div>
+      <div class="video-label">
+       Project Walkthrough Video
+      </div>
+     </div>
+    </div><!-- Client Feedback Section -->
+    <div class="client-feedback" id="client-feedback"><!-- Feedback will be inserted by JavaScript -->
+    </div>
+   </div>
+  </div>
   <script>
-    // --- Default Configuration ---
     const defaultConfig = {
-      hero_tagline: "Building Dreams with Precision & Passion",
-      hero_subtitle: "Expert construction and interior design services that transform your vision into reality with meticulous attention to detail and creative excellence",
-      about_title: "About Archispot",
-      about_text: "At Archispot, we bring years of expertise in construction and interior design to every project. Our commitment to excellence, innovative design philosophy, and attention to detail ensure that each space we create is not just built, but crafted with precision and passion. We believe in transforming spaces into experiences that reflect your unique vision and lifestyle.",
-      contact_email: "archispot@gmail.com",
-      contact_phone: "9363717862",
-      contact_address: "No: 37, Baskar Palace, Devi Nagar, Kolathur, Chennai - 600099",
+      site_title: "ARCHISPOT",
+      hero_heading: "Building Dreams with Precision & Passion",
+      hero_description: "Expert construction and interior design services that transform your vision into reality with meticulous attention to detail and creative excellence",
+      cta_button_text: "Get In Touch",
+      about_heading: "About Archispot",
+      about_description: "At Archispot, we bring years of expertise in construction and interior design to every project. Our commitment to excellence, innovative design philosophy, and attention to detail ensure that each space we create is not just built, but crafted with precision and passion. We believe in transforming spaces into experiences that reflect your unique vision and lifestyle.",
+      projects_heading: "Explore Our Projects",
       background_color: "#FFFFFF",
+      nav_background_color: "#000000",
       text_color: "#000000",
       accent_color: "#000000",
-      surface_color: "#F8F8F8",
-      border_color: "#E0E0E0",
+      secondary_text_color: "#666666",
       font_family: "Poppins",
       font_size: 16
     };
 
-    // --- New Project Gallery Data Structure ---
-    // (Using text placeholders. Replace with real image/video URLs)
+    // Project data with images, videos, and client feedback
     const projectData = {
-      construction: [{
-        id: "const-proj-1",
-        name: "Modern Villa (ECR)",
-        description: "A 4-bed luxury villa with sustainable design.",
-        icon: "🏢",
-        images: ["Villa Front View", "Villa Poolside", "Living Room", "Master Bedroom"],
-        videos: ["Villa Walkthrough Video"],
-        feedback: {
-          client: "Mr. & Mrs. Sharma",
-          quote: "Archispot delivered our dream home exactly as we envisioned. The quality and attention to detail are outstanding!"
+      construction: [
+        {
+          title: "Luxury Villa - Besant Nagar",
+          description: "A stunning 4,500 sq ft modern villa featuring contemporary architecture, premium finishes, and smart home integration. This residential masterpiece includes 4 bedrooms, 5 bathrooms, infinity pool, and landscaped gardens.",
+          icon: "🏡",
+          category: "Construction",
+          images: ["🏠", "🏗️", "🌳"],
+          videoIcon: "🎥",
+          duration: "12 months",
+          area: "4,500 sq ft",
+          location: "Besant Nagar, Chennai",
+          client: {
+            name: "Mr. Rajesh Kumar",
+            feedback: "Archispot transformed our dream into reality. The attention to detail and quality of construction exceeded our expectations. The team was professional, punctual, and delivered exactly what we envisioned.",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Residential Complex - OMR",
+          description: "Premium gated community with 24 luxury apartments spread across 3 blocks. Features include clubhouse, swimming pool, gym, children's play area, and 24/7 security. Modern amenities with sustainable design principles.",
+          icon: "🏢",
+          category: "Construction",
+          images: ["🏘️", "🏊", "🎾"],
+          videoIcon: "🎥",
+          duration: "18 months",
+          area: "85,000 sq ft",
+          location: "OMR, Chennai",
+          client: {
+            name: "Green Valley Developers",
+            feedback: "Outstanding work by Archispot! They completed our residential complex ahead of schedule without compromising on quality. Their project management skills and construction expertise are truly commendable.",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Commercial Building - Anna Nagar",
+          description: "Modern 5-story commercial complex with retail spaces on ground floor and office spaces above. Features include high-speed elevators, central air conditioning, power backup, and ample parking facilities.",
+          icon: "🏬",
+          category: "Construction",
+          images: ["🏢", "🏪", "🅿️"],
+          videoIcon: "🎥",
+          duration: "15 months",
+          area: "32,000 sq ft",
+          location: "Anna Nagar, Chennai",
+          client: {
+            name: "Ms. Priya Sharma",
+            feedback: "Archispot delivered a world-class commercial building. Their understanding of commercial construction requirements and adherence to timelines was impressive. Highly recommend for any commercial projects.",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Independent Villa - ECR",
+          description: "Beachside luxury villa with panoramic ocean views. Features include open-plan living, floor-to-ceiling windows, private beach access, outdoor entertainment area, and infinity pool overlooking the sea.",
+          icon: "🏖️",
+          category: "Construction",
+          images: ["🌊", "🏠", "🌅"],
+          videoIcon: "🎥",
+          duration: "14 months",
+          area: "5,200 sq ft",
+          location: "ECR, Chennai",
+          client: {
+            name: "Dr. Anand Krishnan",
+            feedback: "Building our dream beach house with Archispot was a wonderful experience. They handled every challenge with expertise and created a home that perfectly captures coastal living. Exceptional craftsmanship!",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Duplex Villa - Velachery",
+          description: "Contemporary duplex villa with modern architecture and efficient space utilization. Includes 3 bedrooms, modular kitchen, terrace garden, car parking, and solar panel installation for sustainable living.",
+          icon: "🏘️",
+          category: "Construction",
+          images: ["🏡", "☀️", "🌿"],
+          videoIcon: "🎥",
+          duration: "10 months",
+          area: "3,800 sq ft",
+          location: "Velachery, Chennai",
+          client: {
+            name: "Mr. Suresh Babu",
+            feedback: "From foundation to finishing, Archispot maintained the highest standards. Their transparent communication and quality workmanship made the entire construction process smooth and stress-free.",
+            rating: "⭐⭐⭐⭐⭐"
+          }
         }
-      },
-      {
-        id: "const-proj-2",
-        name: "Commercial Complex",
-        description: "A 5-story commercial hub in Velachery.",
-        icon: "🏗️",
-        images: ["Complex Exterior", "Lobby Area", "Rooftop Cafeteria"],
-        videos: ["Complex Drone View"],
-        feedback: {
-          client: "Velachery Properties Ltd.",
-          quote: "A professional team that delivered on time and within budget. Highly recommended for large-scale projects."
-        }
-      }
       ],
-      interior: [{
-        id: "int-proj-1",
-        name: "Minimalist Apartment",
-        description: "A 3BHK apartment redesign in Anna Nagar.",
-        icon: "🛋️",
-        images: ["Living Area (After)", "Modular Kitchen", "Minimalist Bedroom", "Living Area (Before)"],
-        videos: ["Apartment Makeover Time-lapse"],
-        feedback: {
-          client: "Priya R.",
-          quote: "They transformed my cluttered apartment into a serene, beautiful, and functional space. I love my new home!"
+      interior: [
+        {
+          title: "Modern Apartment - Adyar",
+          description: "Complete interior transformation of a 2,000 sq ft apartment with contemporary design. Features include modular kitchen, designer lighting, custom furniture, false ceiling, and premium flooring throughout.",
+          icon: "✨",
+          category: "Interior Design",
+          images: ["🛋️", "🍽️", "💡"],
+          videoIcon: "🎥",
+          duration: "3 months",
+          area: "2,000 sq ft",
+          location: "Adyar, Chennai",
+          client: {
+            name: "Mrs. Lakshmi Venkat",
+            feedback: "Archispot's interior design team has an incredible eye for detail. They transformed our apartment into a stylish, functional space that reflects our personality. Every corner is thoughtfully designed!",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Luxury Penthouse - Nungambakkam",
+          description: "High-end penthouse interior with Italian marble flooring, designer furniture, smart lighting, home automation, and premium fixtures. Elegant design combining luxury with comfort and functionality.",
+          icon: "🏆",
+          category: "Interior Design",
+          images: ["💎", "🛋️", "🎨"],
+          videoIcon: "🎥",
+          duration: "4 months",
+          area: "3,500 sq ft",
+          location: "Nungambakkam, Chennai",
+          client: {
+            name: "Mr. Vikram Malhotra",
+            feedback: "Absolutely stunning work! Archispot created a luxurious living space that exceeds five-star hotel standards. Their choice of materials, colors, and furniture is impeccable. Worth every penny!",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Office Interior - Guindy",
+          description: "Corporate office interior design for 50+ employees. Includes reception area, workstations, conference rooms, break-out zones, and executive cabins. Modern, productive workspace with ergonomic furniture.",
+          icon: "💼",
+          category: "Interior Design",
+          images: ["🖥️", "📊", "☕"],
+          videoIcon: "🎥",
+          duration: "2 months",
+          area: "4,000 sq ft",
+          location: "Guindy, Chennai",
+          client: {
+            name: "TechVision Solutions",
+            feedback: "Archispot designed an office space that boosted our team's productivity and morale. The layout is efficient, the aesthetics are modern, and they completed everything within our budget and timeline.",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Restaurant Interior - T Nagar",
+          description: "Contemporary restaurant interior with seating for 80 guests. Features include ambient lighting, acoustic treatment, open kitchen design, bar area, and Instagram-worthy decor elements.",
+          icon: "🍽️",
+          category: "Interior Design",
+          images: ["🍴", "🍷", "🎭"],
+          videoIcon: "🎥",
+          duration: "2.5 months",
+          area: "2,500 sq ft",
+          location: "T Nagar, Chennai",
+          client: {
+            name: "Spice Garden Restaurant",
+            feedback: "Our restaurant's interior by Archispot has become the talk of the town! Customers love the ambiance, and it has significantly increased our footfall. Professional team with creative vision!",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Villa Interior - Sholinganallur",
+          description: "Complete interior design for 4BHK villa including living room, dining area, bedrooms, kitchen, and bathrooms. Blend of traditional and contemporary styles with custom-made furniture and decor.",
+          icon: "🏠",
+          category: "Interior Design",
+          images: ["🛏️", "🍳", "🚿"],
+          videoIcon: "🎥",
+          duration: "3.5 months",
+          area: "3,200 sq ft",
+          location: "Sholinganallur, Chennai",
+          client: {
+            name: "Mr. Arun Prasad",
+            feedback: "Archispot brought warmth and elegance to our home. Every room has its own character while maintaining overall harmony. Their team listened to our needs and delivered beyond expectations!",
+            rating: "⭐⭐⭐⭐⭐"
+          }
         }
-      },
-      {
-        id: "int-proj-2",
-        name: "Vibrant Cafe Design",
-        description: "Thematic interior design for a new cafe.",
-        icon: "☕",
-        images: ["Cafe Seating Area", "Custom Counter", "Wall Art & Murals"],
-        videos: ["Cafe Ambience Video"],
-        feedback: {
-          client: "The Brew Room",
-          quote: "The design is a huge hit with our customers! Archispot captured our brand's vibe perfectly."
-        }
-      },
-      {
-        id: "int-proj-3",
-        name: "Corporate Office",
-        description: "Modern, open-plan office for a tech startup.",
-        icon: "💼",
-        images: ["Open Workspace", "Conference Room", "Breakout Zone"],
-        videos: [],
-        feedback: {
-          client: "TechGen Solutions",
-          quote: "Excellent, functional design that fosters collaboration. The team was creative and responsive."
-        }
-      }
       ],
-      renovation: [{
-        id: "ren-proj-1",
-        name: "Heritage Home Restoration",
-        description: "Restoring a 50-year-old home in Mylapore.",
-        icon: "🏡",
-        images: ["Restored Exterior", "New vs Old Flooring", "Modernized Kitchen"],
-        videos: ["Restoration Process"],
-        feedback: {
-          client: "The Iyer Family",
-          quote: "They preserved the soul of our ancestral home while making it modern and comfortable. It's simply wonderful."
+      renovation: [
+        {
+          title: "Heritage Home Renovation - Mylapore",
+          description: "Sensitive restoration of 80-year-old traditional home preserving original architecture while upgrading plumbing, electrical, and structural elements. Maintained heritage charm with modern comfort.",
+          icon: "🏛️",
+          category: "Renovation",
+          images: ["🏺", "🔨", "🎨"],
+          videoIcon: "🎥",
+          duration: "8 months",
+          area: "2,800 sq ft",
+          location: "Mylapore, Chennai",
+          client: {
+            name: "Mrs. Meera Iyer",
+            feedback: "Archispot handled our ancestral home with utmost care and respect. They preserved its heritage value while making it comfortable for modern living. Truly experts in heritage renovation!",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Apartment Renovation - Porur",
+          description: "Complete renovation of 15-year-old apartment including new flooring, kitchen remodeling, bathroom upgrades, fresh painting, electrical rewiring, and modern lighting fixtures.",
+          icon: "🔧",
+          category: "Renovation",
+          images: ["🎨", "🔌", "🚰"],
+          videoIcon: "🎥",
+          duration: "2 months",
+          area: "1,400 sq ft",
+          location: "Porur, Chennai",
+          client: {
+            name: "Mr. Karthik Raman",
+            feedback: "Our old apartment looks brand new! Archispot managed the renovation efficiently with minimal disruption. The quality of work and attention to detail is outstanding. Highly satisfied!",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Commercial Space Renovation - Egmore",
+          description: "Transformation of outdated commercial space into modern retail showroom. Includes new facade, interior layout redesign, upgraded HVAC, LED lighting, and contemporary finishes.",
+          icon: "🏪",
+          category: "Renovation",
+          images: ["🏬", "💡", "🎯"],
+          videoIcon: "🎥",
+          duration: "3 months",
+          area: "3,000 sq ft",
+          location: "Egmore, Chennai",
+          client: {
+            name: "Elite Fashion Store",
+            feedback: "Archispot completely transformed our old shop into a modern showroom. The renovation has attracted more customers and improved our brand image significantly. Excellent project execution!",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Villa Modernization - Chromepet",
+          description: "Comprehensive renovation of 20-year-old villa including structural repairs, new roofing, facade update, interior redesign, and addition of modern amenities like solar panels and rainwater harvesting.",
+          icon: "🏡",
+          category: "Renovation",
+          images: ["🔨", "☀️", "💧"],
+          videoIcon: "🎥",
+          duration: "6 months",
+          area: "3,500 sq ft",
+          location: "Chromepet, Chennai",
+          client: {
+            name: "Dr. Ramesh Kumar",
+            feedback: "Archispot gave our old villa a new lease of life! The structural work is solid, and the modern upgrades have made our home energy-efficient and beautiful. Professional and reliable team!",
+            rating: "⭐⭐⭐⭐⭐"
+          }
+        },
+        {
+          title: "Kitchen & Bathroom Remodel - Tambaram",
+          description: "Complete remodeling of kitchen and 3 bathrooms with modern fixtures, tiles, cabinetry, and plumbing. Improved functionality and aesthetics with space-efficient designs.",
+          icon: "🚿",
+          category: "Renovation",
+          images: ["🍳", "🛁", "🚰"],
+          videoIcon: "🎥",
+          duration: "1.5 months",
+          area: "800 sq ft",
+          location: "Tambaram, Chennai",
+          client: {
+            name: "Mrs. Divya Shankar",
+            feedback: "The kitchen and bathroom renovation by Archispot has made our daily life so much better! Everything is functional, beautiful, and built to last. Great value for money!",
+            rating: "⭐⭐⭐⭐⭐"
+          }
         }
-      }]
+      ]
     };
 
-    // --- New Project Modal Functionality ---
-    const projectModal = document.getElementById('projectModal');
-    const modalTitle = document.getElementById('projectModalTitle');
-    const imagesGrid = document.getElementById('projectModalImagesGrid');
-    const videosGrid = document.getElementById('projectModalVideosGrid');
-    const feedbackQuote = document.getElementById('feedbackQuote');
-    const feedbackClient = document.getElementById('feedbackClient');
+    let currentCategory = 'construction';
 
-    function openProjectModal(category, projectId) {
-      const project = projectData[category]?.find(p => p.id === projectId);
-      if (!project) {
-        console.error("Project not found!");
-        return;
-      }
-
-      // 1. Set Title
-      modalTitle.textContent = project.name;
-
-      // 2. Clear and Populate Images
-      imagesGrid.innerHTML = '';
-      if (project.images.length > 0) {
-        project.images.forEach(imageText => {
-          const placeholder = document.createElement('div');
-          placeholder.className = 'gallery-image-placeholder';
-          placeholder.textContent = imageText;
-          // To use real images:
-          // placeholder.style.backgroundImage = `url(${imageURL})`;
-          // placeholder.textContent = ''; // Remove text
-          imagesGrid.appendChild(placeholder);
+    // Render gallery
+    function renderGallery(category) {
+      const galleryGrid = document.getElementById('gallery-grid');
+      const projects = projectData[category];
+      
+      galleryGrid.classList.add('fade');
+      
+      setTimeout(() => {
+        galleryGrid.innerHTML = '';
+        
+        projects.forEach((project) => {
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
+          item.innerHTML = `
+            <div class="gallery-item-content">
+              <div class="gallery-item-icon">${project.icon}</div>
+            </div>
+            <div class="gallery-item-overlay">
+              <div class="gallery-item-title">${project.title}</div>
+              <div class="gallery-item-description">${project.description.substring(0, 100)}...</div>
+            </div>
+          `;
+          
+          item.addEventListener('click', () => openModal(project));
+          galleryGrid.appendChild(item);
         });
-      } else {
-        imagesGrid.innerHTML = '<p>No images available for this project.</p>';
-      }
-
-
-      // 3. Clear and Populate Videos
-      videosGrid.innerHTML = '';
-      if (project.videos.length > 0) {
-        project.videos.forEach(videoText => {
-          const placeholder = document.createElement('div');
-          placeholder.className = 'gallery-video-placeholder';
-          placeholder.textContent = videoText;
-          // To use real videos (e.g., YouTube embed):
-          // placeholder.innerHTML = `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
-          videosGrid.appendChild(placeholder);
-        });
-      } else {
-        videosGrid.innerHTML = '<p>No videos available for this project.</p>';
-      }
-
-      // 4. Populate Feedback
-      feedbackQuote.textContent = `"${project.feedback.quote}"`;
-      feedbackClient.textContent = project.feedback.client;
-
-      // 5. Show the modal
-      projectModal.classList.add('active');
-      document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        
+        galleryGrid.classList.remove('fade');
+      }, 300);
     }
 
-    function closeProjectModal() {
-      projectModal.classList.remove('active');
-      document.body.style.overflow = ''; // Restore scrolling
+    // Open modal
+    function openModal(project) {
+      const modal = document.getElementById('project-modal');
+      const modalTitle = document.getElementById('modal-title');
+      const modalDescription = document.getElementById('modal-description');
+      const modalCategory = document.getElementById('modal-category');
+      const modalImageIcon = document.getElementById('modal-image-icon');
+      const modalDetails = document.getElementById('modal-details');
+      const mediaGallery = document.getElementById('media-gallery');
+      const videoIcon = document.getElementById('video-icon');
+      const clientFeedback = document.getElementById('client-feedback');
+      
+      // Set basic info
+      modalTitle.textContent = project.title;
+      modalDescription.textContent = project.description;
+      modalCategory.textContent = project.category;
+      modalImageIcon.textContent = project.icon;
+      
+      // Set project details
+      modalDetails.innerHTML = `
+        <div class="modal-detail-item">
+          <div class="modal-detail-label">Duration</div>
+          <div class="modal-detail-value">${project.duration}</div>
+        </div>
+        <div class="modal-detail-item">
+          <div class="modal-detail-label">Area</div>
+          <div class="modal-detail-value">${project.area}</div>
+        </div>
+        <div class="modal-detail-item">
+          <div class="modal-detail-label">Location</div>
+          <div class="modal-detail-value">${project.location}</div>
+        </div>
+      `;
+      
+      // Set media gallery
+      mediaGallery.innerHTML = '';
+      project.images.forEach(img => {
+        const mediaItem = document.createElement('div');
+        mediaItem.className = 'media-item';
+        mediaItem.textContent = img;
+        mediaGallery.appendChild(mediaItem);
+      });
+      
+      // Set video icon
+      videoIcon.textContent = project.videoIcon;
+      
+      // Set client feedback
+      clientFeedback.innerHTML = `
+        <div class="feedback-header">
+          <div class="client-name">${project.client.name}</div>
+          <div class="client-rating">${project.client.rating}</div>
+        </div>
+        <div class="feedback-text">"${project.client.feedback}"</div>
+      `;
+      
+      modal.classList.add('active');
+      document.body.style.overflow = 'hidden';
     }
 
-    // Close modal if clicking outside the content
-    projectModal.addEventListener('click', (event) => {
-      if (event.target === projectModal) {
-        closeProjectModal();
+    // Close modal
+    function closeModal() {
+      const modal = document.getElementById('project-modal');
+      modal.classList.remove('active');
+      document.body.style.overflow = 'auto';
+    }
+
+    // Event listeners
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.getElementById('project-modal').addEventListener('click', (e) => {
+      if (e.target.id === 'project-modal') {
+        closeModal();
       }
     });
 
-    // --- Contact Form ---
-    const contactForm = document.getElementById('contactForm');
-    const formStatus = document.getElementById('formStatus');
+    // Escape key to close modal
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeModal();
+      }
+    });
 
-    contactForm.addEventListener('submit', function (e) {
-      e.preventDefault(); // Prevent the default form submission
+    // Category tabs
+    document.querySelectorAll('.category-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+        currentCategory = tab.dataset.category;
+        renderGallery(currentCategory);
+        
+        // Toggle dark mode for Interior Design category
+        const projectsSection = document.querySelector('.projects-section');
+        if (currentCategory === 'interior') {
+          projectsSection.classList.add('dark-mode');
+        } else {
+          projectsSection.classList.remove('dark-mode');
+        }
+      });
+    });
 
-      const submitButton = contactForm.querySelector('.submit-button');
+    // Element SDK implementation
+    async function onConfigChange(config) {
+      const baseSize = config.font_size || defaultConfig.font_size;
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseFontStack = 'sans-serif';
+      
+      // Update text content
+      document.getElementById('site-title').textContent = config.site_title || defaultConfig.site_title;
+      document.getElementById('hero-heading').textContent = config.hero_heading || defaultConfig.hero_heading;
+      document.getElementById('hero-description').textContent = config.hero_description || defaultConfig.hero_description;
+      document.getElementById('cta-button').textContent = config.cta_button_text || defaultConfig.cta_button_text;
+      document.getElementById('about-heading').textContent = config.about_heading || defaultConfig.about_heading;
+      document.getElementById('about-description').textContent = config.about_description || defaultConfig.about_description;
+      document.getElementById('projects-heading').textContent = config.projects_heading || defaultConfig.projects_heading;
+      
+      // Update colors
+      document.body.style.background = config.background_color || defaultConfig.background_color;
+      document.querySelector('nav').style.background = config.nav_background_color || defaultConfig.nav_background_color;
+      document.querySelector('.hero').style.background = config.background_color || defaultConfig.background_color;
+      
+      const textColor = config.text_color || defaultConfig.text_color;
+      const accentColor = config.accent_color || defaultConfig.accent_color;
+      const secondaryTextColor = config.secondary_text_color || defaultConfig.secondary_text_color;
+      
+      document.querySelectorAll('.hero h1, .hero-content').forEach(el => {
+        el.style.color = textColor;
+      });
+      
+      document.querySelectorAll('.hero p').forEach(el => {
+        el.style.color = secondaryTextColor;
+      });
+      
+      document.querySelector('.projects-header h2').style.color = textColor;
+      document.querySelector('.projects-header p').style.color = secondaryTextColor;
+      
+      document.querySelectorAll('.cta-button').forEach(btn => {
+        btn.style.background = accentColor;
+        btn.style.borderColor = accentColor;
+      });
+      
+      document.querySelectorAll('.category-tab').forEach(tab => {
+        tab.style.borderColor = accentColor;
+        if (!tab.classList.contains('active')) {
+          tab.style.color = accentColor;
+          tab.style.background = 'transparent';
+        }
+      });
+      
+      const activeTab = document.querySelector('.category-tab.active');
+      if (activeTab) {
+        activeTab.style.background = accentColor;
+        activeTab.style.color = '#FFFFFF';
+      }
+      
+      document.querySelector('.contact-container h2').style.color = textColor;
+      
+      // Update fonts
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      
+      // Update font sizes
+      document.querySelector('.hero h1').style.fontSize = `${baseSize * 2.5}px`;
+      document.querySelector('.hero p').style.fontSize = `${baseSize * 1.1}px`;
+      document.querySelector('.about-content h2').style.fontSize = `${baseSize * 2.5}px`;
+      document.querySelector('.about-content p').style.fontSize = `${baseSize * 1.1}px`;
+      document.querySelector('.projects-header h2').style.fontSize = `${baseSize * 2.5}px`;
+      document.querySelector('.projects-header p').style.fontSize = `${baseSize * 1.1}px`;
+    }
+
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities: (config) => ({
+          recolorables: [
+            {
+              get: () => config.background_color || defaultConfig.background_color,
+              set: (value) => {
+                config.background_color = value;
+                window.elementSdk.setConfig({ background_color: value });
+              }
+            },
+            {
+              get: () => config.nav_background_color || defaultConfig.nav_background_color,
+              set: (value) => {
+                config.nav_background_color = value;
+                window.elementSdk.setConfig({ nav_background_color: value });
+              }
+            },
+            {
+              get: () => config.text_color || defaultConfig.text_color,
+              set: (value) => {
+                config.text_color = value;
+                window.elementSdk.setConfig({ text_color: value });
+              }
+            },
+            {
+              get: () => config.accent_color || defaultConfig.accent_color,
+              set: (value) => {
+                config.accent_color = value;
+                window.elementSdk.setConfig({ accent_color: value });
+              }
+            },
+            {
+              get: () => config.secondary_text_color || defaultConfig.secondary_text_color,
+              set: (value) => {
+                config.secondary_text_color = value;
+                window.elementSdk.setConfig({ secondary_text_color: value });
+              }
+            }
+          ],
+          borderables: [],
+          fontEditable: {
+            get: () => config.font_family || defaultConfig.font_family,
+            set: (value) => {
+              config.font_family = value;
+              window.elementSdk.setConfig({ font_family: value });
+            }
+          },
+          fontSizeable: {
+            get: () => config.font_size || defaultConfig.font_size,
+            set: (value) => {
+              config.font_size = value;
+              window.elementSdk.setConfig({ font_size: value });
+            }
+          }
+        }),
+        mapToEditPanelValues: (config) => new Map([
+          ["site_title", config.site_title || defaultConfig.site_title],
+          ["hero_heading", config.hero_heading || defaultConfig.hero_heading],
+          ["hero_description", config.hero_description || defaultConfig.hero_description],
+          ["cta_button_text", config.cta_button_text || defaultConfig.cta_button_text],
+          ["about_heading", config.about_heading || defaultConfig.about_heading],
+          ["about_description", config.about_description || defaultConfig.about_description],
+          ["projects_heading", config.projects_heading || defaultConfig.projects_heading]
+        ])
+      });
+    }
+
+    // Form submission handler
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const submitButton = this.querySelector('.submit-button');
+      const formMessage = document.getElementById('form-message');
+      
+      // Disable button and show loading state
       submitButton.disabled = true;
       submitButton.textContent = 'Sending...';
-
-      // Simulate a form submission
+      
+      // Hide previous messages
+      formMessage.className = 'form-message';
+      formMessage.style.display = 'none';
+      
+      // Simulate form submission (in real scenario, this would send to a server)
       setTimeout(() => {
-        // Reset button
+        // Show success message
+        formMessage.className = 'form-message success';
+        formMessage.textContent = 'Thank you! Your message has been sent successfully. We will get back to you soon.';
+        formMessage.style.display = 'block';
+        
+        // Reset form
+        this.reset();
+        
+        // Re-enable button
         submitButton.disabled = false;
         submitButton.textContent = 'Send Message';
-
-        // Show success message
-        formStatus.textContent = 'Thank you! Your message has been sent.';
-        formStatus.className = 'form-status success';
-
-        // Clear the form
-        contactForm.reset();
-
-        // Hide the status message after 3 seconds
+        
+        // Hide message after 5 seconds
         setTimeout(() => {
-          formStatus.style.display = 'none';
-        }, 3000);
-
-      }, 1500); // Simulate network delay
+          formMessage.style.display = 'none';
+        }, 5000);
+      }, 1500);
     });
 
-
-    // --- Populate Project Grids on Page Load ---
-    function populateProjectGrids() {
-      const constructionGrid = document.getElementById('construction-projects-grid');
-      const interiorGrid = document.getElementById('interior-projects-grid');
-      const renovationGrid = document.getElementById('renovation-projects-grid');
-
-      // Helper function to create a card
-      const createProjectCard = (project, category) => {
-        const card = document.createElement('div');
-        card.className = 'specific-project-card';
-        card.onclick = () => openProjectModal(category, project.id);
-        card.innerHTML = `
-          <div class="project-card-icon">${project.icon || '🛠️'}</div>
-          <h4>${project.name}</h4>
-          <p>${project.description}</p>
-        `;
-        return card;
-      };
-
-      // Populate Construction
-      projectData.construction.forEach(project => {
-        constructionGrid.appendChild(createProjectCard(project, 'construction'));
-      });
-
-      // Populate Interior
-      projectData.interior.forEach(project => {
-        interiorGrid.appendChild(createProjectCard(project, 'interior'));
-      });
-
-      // Populate Renovation
-      projectData.renovation.forEach(project => {
-        renovationGrid.appendChild(createProjectCard(project, 'renovation'));
-      });
-    }
-
-    // Explicitly call the function to populate the grids after definition
-    populateProjectGrids();
+    // Initial render
+    renderGallery(currentCategory);
   </script>
-</body>
-
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99d7f4a8e5dda90e',t:'MTc2Mjk3MDcwNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
