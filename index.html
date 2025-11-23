@@ -209,45 +209,6 @@
     .projects-section {
       padding: 8rem 5%;
       background: #FFFFFF;
-      transition: background 0.3s, color 0.3s;
-    }
-
-    .projects-section.dark-mode {
-      background: #000000;
-    }
-
-    .projects-section.dark-mode .projects-header h2,
-    .projects-section.dark-mode .gallery-item-title {
-      color: #FFFFFF;
-    }
-
-    .projects-section.dark-mode .projects-header p {
-      color: #CCCCCC;
-    }
-
-    .projects-section.dark-mode .category-tab {
-      background: #000000;
-      color: #FFFFFF;
-      border-color: #FFFFFF;
-    }
-
-    .projects-section.dark-mode .category-tab:hover {
-      background: #FFFFFF;
-      color: #000000;
-    }
-
-    .projects-section.dark-mode .category-tab.active {
-      background: #FFFFFF;
-      color: #000000;
-    }
-
-    .projects-section.dark-mode .gallery-item {
-      border-color: #333333;
-      background: #1a1a1a;
-    }
-
-    .projects-section.dark-mode .gallery-item:hover {
-      border-color: #FFFFFF;
     }
 
     .projects-container {
@@ -1205,7 +1166,7 @@
           description: "Contemporary restaurant interior with seating for 80 guests. Features include ambient lighting, acoustic treatment, open kitchen design, bar area, and Instagram-worthy decor elements.",
           icon: "🍽️",
           category: "Interior Design",
-          images: ["🍴", "🍷", "🎭"],
+          images: ["🍴", "����", "🎭"],
           videoIcon: "🎥",
           duration: "2.5 months",
           area: "2,500 sq ft",
@@ -1434,18 +1395,24 @@
     // Category tabs
     document.querySelectorAll('.category-tab').forEach(tab => {
       tab.addEventListener('click', () => {
-        document.querySelectorAll('.category-tab').forEach(t => t.classList.remove('active'));
+        const accentColor = (window.elementSdk && window.elementSdk.config.accent_color) || defaultConfig.accent_color;
+        
+        // Remove active class and reset all tabs to default style
+        document.querySelectorAll('.category-tab').forEach(t => {
+          t.classList.remove('active');
+          t.style.background = '#FFFFFF';
+          t.style.color = accentColor;
+          t.style.borderColor = accentColor;
+        });
+        
+        // Add active class and style to clicked tab
         tab.classList.add('active');
+        tab.style.background = accentColor;
+        tab.style.color = '#FFFFFF';
+        tab.style.borderColor = accentColor;
+        
         currentCategory = tab.dataset.category;
         renderGallery(currentCategory);
-        
-        // Toggle dark mode for Interior Design category
-        const projectsSection = document.querySelector('.projects-section');
-        if (currentCategory === 'interior') {
-          projectsSection.classList.add('dark-mode');
-        } else {
-          projectsSection.classList.remove('dark-mode');
-        }
       });
     });
 
@@ -1626,5 +1593,5 @@
     // Initial render
     renderGallery(currentCategory);
   </script>
- <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'99d7ff25f03f28bc',t:'MTc2Mjk3MTEzNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a321eccc0177fab',t:'MTc2MzkxNjE1Mi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
